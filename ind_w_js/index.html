@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XP Food — Таверна Игровых Блюд</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo"> XP Food <span class="sub-logo">[Лавка крафта]</span></div>
+        <nav class="nav">
+            <button id="show-all-btn" class="btn active">Все рецепты</button>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- Панель поиска по играм -->
+        <section class="controls-section">
+            <input type="text" id="search-input" placeholder="Поиск по названию или игре..." class="input-field">
+            <select id="category-select" class="select-field">
+                <option value="all">Все категории</option>
+                <option value="dessert">Десерты</option>
+                <option value="drink">Напитки / Зелья</option>
+                <option value="main">Основное </option>
+            </select>
+        </section>
+
+        <!-- Сетка крафта -->
+        <section class="recipes-grid" id="recipes-container">
+           
+        </section>
+
+        <!-- Форма добавления игрового блюда -->
+        <section class="form-section">
+            <h3> Добавить новый рецепт в Книгу Крафта</h3>
+            <form id="add-recipe-form" novalidate>
+    <div class="form-group">
+        <input type="text" id="recipe-title" placeholder="Название блюда" required class="input-field">
+        <span class="error-msg" id="title-error"></span>
+    </div>
+    
+    <div class="form-group">
+        <input type="text" id="recipe-game" placeholder="Из какой игры? (например, Fallout)" required class="input-field">
+        <span class="error-msg" id="game-error"></span>
+    </div>
+    
+    <div class="form-group">
+        <input type="number" id="recipe-hp" placeholder="Сколько HP восстанавливает?" required min="0" class="input-field">
+        <span class="error-msg" id="hp-error"></span>
+    </div>
+    
+    <div class="form-group">
+        <input type="text" id="recipe-ingredients" placeholder="Ингредиенты (через запятую). Например: Мука 200г, Сахар 50г" required class="input-field">
+        <span class="error-msg" id="ingredients-error"></span>
+    </div>      
+    
+    <div class="form-group">
+        <select id="recipe-category" class="select-field">
+            <option value="dessert">Десерт</option>
+            <option value="drink">Напиток / Зелье</option>
+            <option value="main">Основное </option>
+        </select>
+    </div>
+    
+    <button type="submit" class="btn btn-submit">Изучить рецепт (+XP)</button>
+</form>
+        </section>
+    </main>
+
+    <!-- Экран информации о предмете -->
+    <div id="recipe-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modal-title"></h2>
+            <p id="modal-game" class="game-tag"></p>
+            <p id="modal-hp"></p>
+            <h4>Необходимые ингредиенты:</h4>
+            <ul id="modal-ingredients"></ul>
+        </div>
+    </div>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
